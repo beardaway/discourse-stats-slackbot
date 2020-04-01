@@ -10,10 +10,24 @@ You want to analyze your Discourse Developer Community Forum activity? Using Dat
 
 ### Core Concept
 
-The main concept standing behind the idea of having such tool was to save time by executing one command instead of following the path described in the intro of this repo. One command, making proper request, parsing the response and then presenting the results, that's it. **Saving time one query at a time!**
+The main concept standing behind the idea of having such tool was to save time by executing one command instead of following the path described in the intro of this repo. One command, making proper request, parsing the response and then presenting the results, that's it. The only thing you need to prepare is to have a query of your choice that will be fetching the data you need. **Saving time one query at a time!**
 
 ### The Webtask Way
 
+This version was developed using Python. The code for the script can be found [here](https://github.com/beardaway/discourse-stats-slackbot/blob/master/Scripts/python_webhook_version.py). This method requires you to run it manually from your local computer, from terminal. **If you filled in the script with your developer keys it should not be shared with others as the keys are not kept secret**. Here are the steps to make the method work:
+
+* Create your Slack Workspace by going to https://slack.com/get-started#/create
+* Create a channel that you would like to send your stats to
+* Go to https://yourWorkspaceName.slack.com/apps/manage
+* In the search bar type in: Incoming WebHooks and click: Add Configuration
+* Follow the instructions and copy the Webhook URL given at the end
+* Download the [Python Script](https://github.com/beardaway/discourse-stats-slackbot/blob/master/Scripts/python_webhook_version.py)
+* Install Python on your computer
+* Follow the instructions described in script's comments
+* Go to your terminal and navigate to the folder where you have the script
+* Type in your terminal: ```python nameOfYourScriptFile.py ```
+
+**Now you should have your stats in the channel!**
 
 ### The Webhook Way
 
