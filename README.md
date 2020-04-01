@@ -1,3 +1,3 @@
-# Discourse Stats Slackbot - waste less time on queries!
+# Discourse Stats Slackbot
 
 ![](/Assets/DiscourseStatsSlackbot.png)
