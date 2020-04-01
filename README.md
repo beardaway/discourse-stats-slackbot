@@ -1,3 +1,3 @@
-# Discourse Stats Slackbot - automate queries and save your time!
+# Discourse Stats Slackbot - waste less time on queries!
 
 ![](/Assets/DiscourseStatsSlackbot.png)
