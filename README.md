@@ -58,7 +58,6 @@ req.end();
 This method is run from Slack channel once you execute your webtask by typing in ```/wt yourWebtaskName```. Can be run by anyone that you will give access to unlike the webhook version that can be run only by those having developer keys. Here are the steps to make the method work:
 
 * Create your Slack Workspace by going to https://slack.com/get-started#/create
-* Create a channel that you would like to send your stats to
 * Go to https://yourWorkspaceName.slack.com/apps/manage
 * In the search bar type in: Slash Webtask and click: Add Configuration
 * Follow the instructions described there
@@ -118,6 +117,6 @@ If you want to find out more about the stack used in those tools or even build y
 
 * [Developing Slackbots](https://api.slack.com/bot-users) <br>
 * [Slack API](https://api.slack.com/) <br>
-* [Webtask]((https://webtask.io/docs/101)) <br>
+* [Webtask](https://webtask.io/docs/101) <br>
 * [Data Explorer Plugin](https://meta.discourse.org/t/data-explorer-plugin/32566) <br>
 * [What cool Data Explorer queries have you come up with?](https://meta.discourse.org/t/what-cool-data-explorer-queries-have-you-come-up-with/43516) <br>
