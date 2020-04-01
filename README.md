@@ -61,9 +61,10 @@ This method is run from Slack channel once you execute your webtask by typing in
 * Go to https://yourWorkspaceName.slack.com/apps/manage
 * In the search bar type in: Slash Webtask and click: Add Configuration
 * Follow the instructions described there
+* Download the [JavaScript Code](https://github.com/beardaway/discourse-stats-slackbot/blob/master/Scripts/javascript_webtask_version.js)
 * Setup yourself an account on https://webtask.io/
 * In Slack type in ```wt make nameOfYourWebtask```
-* Go to Webtask Editor and edit the webtask you just created using the code from this [script](https://github.com/beardaway/discourse-stats-slackbot/blob/master/Scripts/javascript_webtask_version.js)
+* Go to Webtask Editor and edit the webtask you just created using the code you downloaded
 * Save the webtask once you finish editing it by clicking on the floppy icon
 * Type ```/wt nameOfYourWebtask``` into your Slack channel
 
