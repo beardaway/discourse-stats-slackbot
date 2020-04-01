@@ -30,6 +30,9 @@ def send_request(endpoint):
 
     # Processed API request response - now it's parsed into a dictionary
     # TODO: Based on your query you will need to adjust the syntax below to access the dictionary element of your choice
+    
+    # Sample Request Output
+    # {"success":true,"errors":[],"duration":73.2,"result_count":1,"params":{},"columns":["newusers","activeusers","newtopics","replies","emp_replies"],"default_limit":1000,"relations":{},"colrender":{},"rows":[[577,492,520,1876,1071]]}
 
     response_rows = response["rows"]
 
