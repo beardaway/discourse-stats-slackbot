@@ -14,6 +14,64 @@ The main concept standing behind the idea of having such tool was to save time b
 
 ### The Webtask Way
 
+This version was developed using JavaScript and Node.js. Full script code can be found [here](https://github.com/beardaway/discourse-stats-slackbot/blob/master/Scripts/javascript_webtask_version.js). Simplified script code is show below:
+
+```
+module.exports = (ctx, cb) => {
+
+const http = require('https');
+const json = require('json');
+
+const options = {
+  hostname: 'community.yourCompanyName.com',
+  path: '/admin/plugins/explorer/queries/yourQueryID/run',
+  method: 'POST',
+  headers: {
+    accept: 'application/json',
+    'Content-Type': 'multipart/form-data',
+    'Api-Key': api_key,
+    'Api-Username': api_username
+  }
+};
+
+const req = http.request(options, (res) => {
+  console.log(`statusCode: ${res.statusCode}`);
+
+  res.on('data', (d) => {
+    process.stdout.write(d);
+    const parsed_response = JSON.parse(d);
+    const stats = parsed_response.stats[0]
+
+    cb(null, { text: ('Stats: ' + (stats)),
+             response_type: 'in_channel'});
+  });
+});
+
+req.on('error', (error) => {
+  console.error(error);
+});
+
+req.end();
+}
+```
+
+This method is run from Slack channel once you execute your webtask by typing in ```/wt yourWebtaskName```. Can be run by anyone that you will give access to unlike the webhook version that can be run only by those having developer keys. Here are the steps to make the method work:
+
+* Create your Slack Workspace by going to https://slack.com/get-started#/create
+* Create a channel that you would like to send your stats to
+* Go to https://yourWorkspaceName.slack.com/apps/manage
+* In the search bar type in: Slash Webtask and click: Add Configuration
+* Follow the instructions described there
+* Setup yourself an account on https://webtask.io/
+* In Slack type in ```wt make nameOfYourWebtask```
+* Go to Webtask Editor and edit the webtask you just created using the code from this [script](https://github.com/beardaway/discourse-stats-slackbot/blob/master/Scripts/javascript_webtask_version.js)
+* Save the webtask once you finish editing it by clicking on the floppy icon
+* Type ```/wt nameOfYourWebtask``` into your Slack channel
+
+**Now you should have your stats in the channel!**
+
+### The Webhook Way
+
 This version was developed using Python. Full script code can be found [here](https://github.com/beardaway/discourse-stats-slackbot/blob/master/Scripts/python_webhook_version.py). Simplified script code is shown below:
 
 ```
@@ -53,9 +111,6 @@ This method requires you to run it manually from your local computer, from termi
 * Type in your terminal: ```python nameOfYourScriptFile.py ```
 
 **Now you should have your stats in the channel!**
-
-### The Webhook Way
-
 
 ### Supporting documentation
 
