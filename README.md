@@ -14,7 +14,33 @@ The main concept standing behind the idea of having such tool was to save time b
 
 ### The Webtask Way
 
-This version was developed using Python. The code for the script can be found [here](https://github.com/beardaway/discourse-stats-slackbot/blob/master/Scripts/python_webhook_version.py). This method requires you to run it manually from your local computer, from terminal. **If you filled in the script with your developer keys it should not be shared with others as the keys are not kept secret**. Here are the steps to make the method work:
+This version was developed using Python. Full script code can be found [here](https://github.com/beardaway/discourse-stats-slackbot/blob/master/Scripts/python_webhook_version.py). Simplified script code is shown below:
+
+```
+import requests
+import json
+
+def send_request(endpoint):
+
+    headers = {'Content-Type': 'multipart/form-data', 'Api-Key': API_KEY, 'Api-Username': API_USERNAME}
+    request = requests.post(url = endpoint, headers = headers)
+
+    response = json.loads(request.text)
+    stats_to_post = response["number"]
+    post_text = "Stats: {}".format(stats_to_post)
+
+    return response_text
+
+def post_to_slack(processed_response):
+
+    slack_message = {'text': processed_response}
+    requests.post(WEBHOOK_URL, json.dumps(slack_message))
+
+processed_response = send_request(endpoint)
+post_to_slack(processed_response)
+```
+
+This method requires you to run it manually from your local computer, from terminal. **If you filled in the script with your developer keys it should not be shared with others as the keys are not kept secret**. Here are the steps to make the method work, assuming you have Python installed on your computer:
 
 * Create your Slack Workspace by going to https://slack.com/get-started#/create
 * Create a channel that you would like to send your stats to
@@ -22,7 +48,6 @@ This version was developed using Python. The code for the script can be found [h
 * In the search bar type in: Incoming WebHooks and click: Add Configuration
 * Follow the instructions and copy the Webhook URL given at the end
 * Download the [Python Script](https://github.com/beardaway/discourse-stats-slackbot/blob/master/Scripts/python_webhook_version.py)
-* Install Python on your computer
 * Follow the instructions described in script's comments
 * Go to your terminal and navigate to the folder where you have the script
 * Type in your terminal: ```python nameOfYourScriptFile.py ```
