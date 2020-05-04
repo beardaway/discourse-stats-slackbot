@@ -1,4 +1,4 @@
-# Discourse Stats Slackbot
+# Discourse Stats Slack
 
 ![](/Assets/DiscourseStatsSlackbot.png)
 
