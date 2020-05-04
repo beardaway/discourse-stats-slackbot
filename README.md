@@ -68,6 +68,8 @@ This method is run from Slack channel once you execute your webtask by typing in
 * Save the webtask once you finish editing it by clicking on the floppy icon
 * Type ```/wt nameOfYourWebtask``` into your Slack channel
 
+![](/Assets/WebtaskResultScreenshot.png)
+
 **Now you should have your stats in the channel!**
 
 ### The Webhook Way
