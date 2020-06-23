@@ -120,7 +120,7 @@ To make it execute itself on the first day of each month at 12:00 automatically,
 * Copy and paste this snippet adjusting the path for where you downloaded your script:
 
 ```
-0 12 1 * * cd <insert_script_location_path> && python python_webhook_version.py
+0 12 1 * * cd <insert_script_folder_location_path> && python python_webhook_version.py
 
 ```
 * Press esc and type ```:wq```
