@@ -10,7 +10,9 @@ You want to analyze your Discourse Developer Community Forum activity? Using Dat
 
 ### Core Concept
 
-The main concept standing behind the idea of having such tool was to save time by executing one command instead of following the path described in the intro of this repo. One command, making proper request, parsing the response and then presenting the results, that's it. The only thing you need to prepare is to have a query of your choice that will be fetching the data you need. **Saving time one query at a time!**
+The main concept standing behind the idea of having such tool was to save time by executing one command instead of following the path described in the intro of this repo. One command, making proper request, parsing the response and then presenting the results, that's it. The only thing you need to prepare is to have a query of your choice that will be fetching the data you need. Sample queries can be found in the [SQLQueries Folder](https://github.com/konradsopala/discourse-stats-slack/tree/master/SQLQueries). For even more queries visit [Discourse SQL Wizard](https://github.com/konradsopala/discourse-sql-wizard). 
+
+**Saving time one query at a time!**
 
 ### The Webtask Way
 
