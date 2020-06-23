@@ -2,17 +2,17 @@
 
 import requests
 import json
+import os
 
-# TODO: Fill in the values
+# TODO: Store those values in environment variables to retrieve them later
 # WEBHOOK_URL - Webhhok URL for the Slack channel that you would like to post to
 # ENDPOINT - URL of the endpoint that you're hitting executing your Data Explorer query
 # API_KEY - Key that you can generate in API section in your Discourse Dashboard
 # API_USERNAME - # Put system if yoy created the API Key for all users otherwise put in your Discourse username
 
-WEBHOOK_URL = '<YOUR_WEBHOOK_URL>'
-ENDPOINT = 'https://linkToYourCommunity/admin/plugins/explorer/queries/<YOUR_QUERY_ID/run'
-API_KEY = '<YOUR_API_KEY'
-API_USERNAME = '<USERNAME>'
+WEBHOOK_URL = os.environ.get('WEBHOOK_URL')
+ENDPOINT = os.environ.get('DISCOURSE_STATS_ENDPOINT')
+API_KEY = os.environ.get('DISCOURSE_STATS_API_KEY')
 
 # Core Functions
 
@@ -20,7 +20,7 @@ def send_request(endpoint):
 
     # There is no error handling here in terms of request. If the API changes anytime in the future, adjust the code based on request status code
 
-    headers = {'Content-Type': 'multipart/form-data', 'Api-Key': API_KEY, 'Api-Username': API_USERNAME}
+    headers = {'Content-Type': 'multipart/form-data', 'Api-Key': API_KEY, 'Api-Username': 'system'}
     request = requests.post(url = endpoint, headers = headers)
     print("Request Status Code: {}".format(request.status_code))
 
