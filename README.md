@@ -102,7 +102,7 @@ processed_response = send_request(endpoint)
 post_to_slack(processed_response)
 ```
 
-This method runs the Python script manually provided that you scheduled that with cron. Here are the steps to make the method work, assuming you have Python installed on your computer:
+This method runs the Python script automatically provided that you scheduled that with cron (described below). Here are the steps to make the method work, assuming you have Python installed on your computer:
 
 * Create your Slack Workspace by going to https://slack.com/get-started#/create
 * Create a channel that you would like to send your stats to
