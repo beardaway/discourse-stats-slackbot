@@ -10,9 +10,9 @@ import os
 # API_KEY - Key that you can generate in API section in your Discourse Dashboard
 # API_USERNAME - # Put system if yoy created the API Key for all users otherwise put in your Discourse username
 
-WEBHOOK_URL = os.environ.get('WEBHOOK_URL')
-ENDPOINT = os.environ.get('DISCOURSE_STATS_ENDPOINT')
-API_KEY = os.environ.get('DISCOURSE_STATS_API_KEY')
+WEBHOOK_URL = os.environ['WEBHOOK_URL']
+ENDPOINT = os.environ['DISCOURSE_STATS_ENDPOINT']
+API_KEY = os.environ['DISCOURSE_STATS_API_KEY']
 
 # Core Functions
 
