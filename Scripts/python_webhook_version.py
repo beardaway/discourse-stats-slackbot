@@ -13,6 +13,7 @@ import os
 WEBHOOK_URL = os.environ['WEBHOOK_URL']
 ENDPOINT = os.environ['DISCOURSE_STATS_ENDPOINT']
 API_KEY = os.environ['DISCOURSE_STATS_API_KEY']
+API_USERNAME = 'system'
 
 # Core Functions
 
@@ -20,7 +21,7 @@ def send_request(endpoint):
 
     # There is no error handling here in terms of request. If the API changes anytime in the future, adjust the code based on request status code
 
-    headers = {'Content-Type': 'multipart/form-data', 'Api-Key': API_KEY, 'Api-Username': 'system'}
+    headers = {'Content-Type': 'multipart/form-data', 'Api-Key': API_KEY, 'Api-Username': API_USERNAME}
     request = requests.post(url = endpoint, headers = headers)
     print("Request Status Code: {}".format(request.status_code))
 
