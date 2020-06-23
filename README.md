@@ -102,7 +102,7 @@ processed_response = send_request(endpoint)
 post_to_slack(processed_response)
 ```
 
-This method requires you to run it manually from your local computer, from terminal. **If you filled in the script with your developer keys it should not be shared with others as the keys are not kept secret**. Here are the steps to make the method work, assuming you have Python installed on your computer:
+This method runs the Python script manually provided that you scheduled that with cron. Here are the steps to make the method work, assuming you have Python installed on your computer:
 
 * Create your Slack Workspace by going to https://slack.com/get-started#/create
 * Create a channel that you would like to send your stats to
@@ -111,15 +111,40 @@ This method requires you to run it manually from your local computer, from termi
 * Follow the instructions and copy the Webhook URL given at the end
 * Download the [Python Script](https://github.com/beardaway/discourse-stats-slackbot/blob/master/Scripts/python_webhook_version.py)
 * Follow the instructions described in script's comments
-* Go to your terminal and navigate to the folder where you have the script
-* Type in your terminal: ```python nameOfYourScriptFile.py ```
 
-**Now you should have your stats in the channel!**
+To make it execute itself on the first day of each month at 12:00 automatically, go through following steps:
+
+* Open terminal (Mac / Linux)
+* Type in ```crontab -e```
+* Press ```i``` to enable insert mode in Vim
+* Copy and paste this snippet adjusting the path for where you downloaded your script:
+
+```
+0 12 1 * * cd <insert_script_location_path> && python python_webhook_version.py
+
+```
+* Press esc and type ```:wq```
+
+If you want to schedule the execution of the script at different time, follow this cron scheduling mechanism:
+```
+# ┌───────────── minute (0 - 59)
+# │ ┌───────────── hour (0 - 23)
+# │ │ ┌───────────── day of month (1 - 31)
+# │ │ │ ┌───────────── month (1 - 12)
+# │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday to Saturday;
+# │ │ │ │ │                                       7 is also Sunday on some systems)
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * *  command_to_execute
+```
+
+**Now you should have your stats in the channel every month automatically!**
 
 ### Supporting documentation
 
 If you want to find out more about the stack used in those tools or even build your own tools, make sure to visit following links and get inspired:
 
+* [Cron](https://en.wikipedia.org/wiki/Cron) <br>
 * [Developing Slackbots](https://api.slack.com/bot-users) <br>
 * [Slack API](https://api.slack.com/) <br>
 * [Webtask](https://webtask.io/docs/101) <br>
