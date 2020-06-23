@@ -16,7 +16,7 @@ The main concept standing behind the idea of having such tool was to save time b
 
 ### The Webtask Way
 
-This version was developed using JavaScript and Node.js. Full script code can be found [here](https://github.com/beardaway/discourse-stats-slackbot/blob/master/Scripts/javascript_webtask_version.js). Simplified script code is show below:
+This version was developed using JavaScript and Node.js. Full script code can be found [here](https://github.com/beardaway/discourse-stats-slackbot/blob/master/Scripts/javascript_webtask_version.js). Simplified script code is shown below:
 
 ```
 module.exports = (ctx, cb) => {
