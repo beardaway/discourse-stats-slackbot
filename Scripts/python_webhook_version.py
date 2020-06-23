@@ -4,7 +4,7 @@ import requests
 import json
 import os
 
-# TODO: Store those values in environment variables to retrieve them later
+# TODO: Store those values in environment variables to retrieve them later (https://www.youtube.com/watch?v=5iWhQWVXosU)
 # WEBHOOK_URL - Webhhok URL for the Slack channel that you would like to post to
 # ENDPOINT - URL of the endpoint that you're hitting executing your Data Explorer query
 # API_KEY - Key that you can generate in API section in your Discourse Dashboard
