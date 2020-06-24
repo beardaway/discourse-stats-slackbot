@@ -11,8 +11,8 @@ import os
 # API_USERNAME - Put system if yoy created the API Key for all users otherwise put in your Discourse username
 
 WEBHOOK_URL = os.environ['WEBHOOK_URL']
-ENDPOINT = os.environ['DISCOURSE_STATS_ENDPOINT']
 API_KEY = os.environ['DISCOURSE_STATS_API_KEY']
+ENDPOINT = 'https://community.<INSERT_YOUR_COMPANY_NAME>.com/admin/plugins/explorer/queries/<INSERT_YOUR_QUERY_ID>/run'
 API_USERNAME = 'system'
 
 # Core Functions
@@ -22,7 +22,7 @@ def send_request(endpoint):
     # There is no error handling here in terms of request. If the API changes anytime in the future, adjust the code based on request status code
 
     headers = {'Content-Type': 'multipart/form-data', 'Api-Key': API_KEY, 'Api-Username': API_USERNAME}
-    request = requests.post(url = endpoint, headers = headers)
+    request = requests.post(url = ENDPOINT, headers = headers)
     print("Request Status Code: {}".format(request.status_code))
 
     # Unprocessed API request response
@@ -31,7 +31,7 @@ def send_request(endpoint):
 
     # Processed API request response - now it's parsed into a dictionary
     # TODO: Based on your query you will need to adjust the syntax below to access the dictionary element of your choice
-    
+
     # Sample Request Output
     # {"success":true,"errors":[],"duration":73.2,"result_count":1,"params":{},"columns":["newusers","activeusers","newtopics","replies","emp_replies"],"default_limit":1000,"relations":{},"colrender":{},"rows":[[577,492,520,1876,1071]]}
 

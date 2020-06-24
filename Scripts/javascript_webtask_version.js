@@ -12,8 +12,8 @@ const json = require('json');
 // TODO: Fill in the options constant hostname and path fields
 
 const options = {
-  hostname: '<YOUR_COMMUNITY_FORUM_MAIN_PAGE_URL',
-  path: '/admin/plugins/explorer/queries/<YOUR_Query_ID>/run',
+  hostname: '<INSERT_YOUR_COMMUNITY_FORUM_MAIN_PAGE_URL',
+  path: '/admin/plugins/explorer/queries/<INSERT_YOUR_Query_ID>/run',
   method: 'POST',
   headers: {
     accept: 'application/json',
