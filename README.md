@@ -82,10 +82,10 @@ This version was developed using Python. Full script code can be found [here](ht
 import requests
 import json
 
-def send_request(endpoint):
+def send_request():
 
     headers = {'Content-Type': 'multipart/form-data', 'Api-Key': API_KEY, 'Api-Username': API_USERNAME}
-    request = requests.post(url = endpoint, headers = headers)
+    request = requests.post(url = ENDPOINT, headers = headers)
 
     response = json.loads(request.text)
     stats_to_post = response["number"]

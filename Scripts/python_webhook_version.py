@@ -17,10 +17,8 @@ API_USERNAME = 'system'
 
 # Core Functions
 
-def send_request(endpoint):
-
-    # There is no error handling here in terms of request. If the API changes anytime in the future, adjust the code based on request status code
-
+def send_request():
+    
     headers = {'Content-Type': 'multipart/form-data', 'Api-Key': API_KEY, 'Api-Username': API_USERNAME}
     request = requests.post(url = ENDPOINT, headers = headers)
     print("Request Status Code: {}".format(request.status_code))
@@ -60,9 +58,8 @@ def send_request(endpoint):
     return response_text
 
 def post_to_slack(processed_response):
-
     slack_message = {'text': processed_response}
     requests.post(WEBHOOK_URL, json.dumps(slack_message))
 
-processed_response = send_request(ENDPOINT)
+processed_response = send_request()
 post_to_slack(processed_response)
